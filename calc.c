@@ -93,14 +93,14 @@ static ssize_t device_read( struct file *filp, char *buffer, size_t length, loff
                                         case '/':
                                                 if (b == 0) {
                                                         sprintf(message, "\n%s\n",
-                                                                "Division by zero!");
+                                                                "Error: Division by zero!");
                                                         written = 1;
                                                         break;
                                                 }
                                                 result = a / b;
                                                 break;
                                         default:
-                                                sprintf(message, "\nUnknown operand: %c\n", op);
+                                                sprintf(message, "\nError: Unknown operation: %c\n", op);
                                                 written = 1;
                                                 break;
                                 }
@@ -223,7 +223,7 @@ static void __exit calc_exit(void)
 }
 
 MODULE_AUTHOR("A. Ruts & V. Mitskevich");
-MODULE_DESCRIPTION("Calc Char Driver");
+MODULE_DESCRIPTION("Calculator as Char Device Driver");
 MODULE_LICENSE("GPL");
 
 module_init(calc_init); 
