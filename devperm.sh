@@ -2,7 +2,7 @@
 
 if [ "$(whoami)" == "root" ]; 
 then
-	sudo chmod a+r+w /dev/calc_f && sudo chmod a+r+w /dev/calc_s && sudo chmod a+r+w /dev/calc_o && sudo chmod a+r+w /dev/calc_r && echo "All done."
+	chmod a+r+w /dev/calc_f && chmod a+r+w /dev/calc_s && chmod a+r+w /dev/calc_o && chmod a+r+w /dev/calc_r && echo "All done."
 else
     echo "Sorry you have to use sudo with this script."
 fi
