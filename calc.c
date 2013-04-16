@@ -25,17 +25,9 @@ static char names[][16] = {
         CALC_O,
         CALC_R
 };
-
-/* Device opened counter. */
 static int device_opened = 0;
-
-/* Char devices files buffers. */
 static char** devices_buffer;
-
-/* User message. */
 static char message[32];
-
-/* Device operations struct. */
 static struct file_operations fops = {
         .owner = THIS_MODULE,
         .read = device_read,
@@ -43,14 +35,8 @@ static struct file_operations fops = {
         .open = device_open,
         .release = device_release
 };
-
-/* Devices numbers. */
 static dev_t numbers[4];
-
-/* Global var for the character device struct */
 static struct cdev* c_dev;
-
-/* Global var for the device class */
 static struct class** classes;
 
 static int device_open(struct inode *inode, struct file *file)
@@ -60,7 +46,6 @@ static int device_open(struct inode *inode, struct file *file)
 
         device_opened++;
         try_module_get(THIS_MODULE);
-
         return 0;
 }
 
@@ -69,7 +54,6 @@ static int device_release(struct inode *inode, struct file *file)
         device_opened--;
 
         module_put(THIS_MODULE);
-
         return 0;
 }
 
@@ -85,9 +69,7 @@ static ssize_t device_read( struct file *filp, char *buffer, size_t length, loff
                 fin = 0;
                 return 0;
         }
-
         strcpy(name, filp->f_dentry->d_name.name);
-
         if (strcmp(name, CALC_F) == 0) {
                 sprintf(message, "\n%s\n", devices_buffer[0]);
         } else if (strcmp(name, CALC_S) == 0) {
@@ -128,13 +110,10 @@ static ssize_t device_read( struct file *filp, char *buffer, size_t length, loff
                         }
                 }
         }
-
         for(i = 0; i < length && message[i]; i++) {
                 put_user(message[i], buffer + i);
         }
-
         fin = 1;
-
         return i;
 }
 
@@ -177,11 +156,9 @@ static ssize_t device_write(struct file *filp, const char *buff, size_t len, lof
         }
 
         fin = 1;
-
         return buf_size;
 }
 
-/* Module init function */
 static int __init calc_init(void)
 {
         int i = 0;
