@@ -10,7 +10,6 @@
 #include <asm/uaccess.h>
 #include "calc.h"
 
-/* Char devices files names. */
 #define CALC_F "calc_f"
 #define CALC_S "calc_s"
 #define CALC_O "calc_o"
@@ -224,11 +223,10 @@ static int __init calc_init(void)
                 }
         }
 
-        printk(KERN_INFO "Calc driver devices were created.\n");
+        printk(KERN_INFO "Driver devices were created.\n");
         return 0;
 }
 
-/* Module exit function */
 static void __exit calc_exit(void)
 {
         int i;
@@ -243,13 +241,13 @@ static void __exit calc_exit(void)
 
         kfree(devices_buffer);
 
-        printk(KERN_INFO "Calc driver devices were removed.\n");
-        printk(KERN_INFO "Calc driver was unloaded.\n");
+        printk(KERN_INFO "Driver devices were removed.\n");
+        printk(KERN_INFO "Driver was unloaded.\n");
 }
 
 MODULE_AUTHOR("A. Ruts & V.Mitskevich");
 MODULE_DESCRIPTION("Calc Char Driver");
 MODULE_LICENSE("GPL");
 
-module_init(calc_init); /* Register module entry point */
-module_exit(calc_exit); /* Register module cleaning up */
+module_init(calc_init); 
+module_exit(calc_exit);
