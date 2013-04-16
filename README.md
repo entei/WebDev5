@@ -1,6 +1,6 @@
-#LabWork #5
+#LabWork #5 for Embedded Systems Course
 
-######Simple driver based calculator, supports (-, +, /, *)
+######Simple calculator as a character device driver, supports (-, +, /, *)
 p.s. We know we stole it but we don't care.
 Adds another line to make "git log --oneline" look sexy.
 
