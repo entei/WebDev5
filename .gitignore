@@ -1,0 +1,4 @@
+#Filtering compilation products & other junk
+*.~
+*.o
+*.ko
