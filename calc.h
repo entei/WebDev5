@@ -1,5 +1,4 @@
 #include <linux/fs.h>
-
 static int device_open(struct inode *inode, struct file *file);
 static int device_release(struct inode *inode, struct file *file);
 static ssize_t device_read(	struct file *filp, char *buffer, size_t length, loff_t * offset);
