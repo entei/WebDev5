@@ -1,3 +1,4 @@
+#Simple make file config
 obj-m += calc.o
 
 KDIR := /lib/modules/$(shell uname -r)/build
