@@ -100,7 +100,7 @@ static ssize_t device_read( struct file *filp, char *buffer, size_t length, loff
                                                 result = a / b;
                                                 break;
                                         default:
-                                                sprintf(message, "\nError: Unknown operation: %c\n", op);
+                                                sprintf(message, "\nError: Wrong operation: %c\n", op);
                                                 written = 1;
                                                 break;
                                 }
