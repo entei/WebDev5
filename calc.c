@@ -79,11 +79,11 @@ static ssize_t device_read( struct file *filp, char *buffer, size_t length, loff
         } else {
                 a = simple_strtol(devices_buffer[0], &end, 10);
                 if (a == 0 && (*end == devices_buffer[0][0])) {
-                        sprintf(message, "\n%s\n", "First operand is not integer.");
+                        sprintf(message, "\n%s\n", "Error: First operand must be integer.");
                 } else {
                         b = simple_strtol(devices_buffer[1], &end, 10);
                         if (b == 0 && (*end == devices_buffer[1][0])) {
-                                sprintf(message, "\n%s\n", "Second operand is not integer.");
+                                sprintf(message, "\n%s\n", "Error: Second operand must be integer.");
                         } else {
                                 op = devices_buffer[2][0];
                                 switch (op) {
@@ -222,7 +222,7 @@ static void __exit calc_exit(void)
         printk(KERN_INFO "Driver was unloaded.\n");
 }
 
-MODULE_AUTHOR("A. Ruts & V.Mitskevich");
+MODULE_AUTHOR("A. Ruts & V. Mitskevich");
 MODULE_DESCRIPTION("Calc Char Driver");
 MODULE_LICENSE("GPL");
 
